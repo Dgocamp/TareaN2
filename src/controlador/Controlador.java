@@ -29,6 +29,7 @@ public class Controlador {
         this.abb = abb;
         this.avl=avl;
         this.ab=ab;
+        p.setTitle("Estructuras de datos : Árboles");
         inicio();
     }
     private void inicio(){
