@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\author{Nicolás García Santelices}
+\title{Documentacion Árbol De Búsqueda Binaria}
+\date{19/04/2018}
+\newpage
+
+\begin{document}
+\maketitle
+\newpage
+\maketitle 
+\tableofcontents
+\newpage
+
+\section{Analisis de un Árbol de Búsqueda Binaria (ABB)}
+\begin{itemize}
+  \item Definición:
+  	Un árbol de búsqueda binario ABB, es aquel que en cada nodo puede tener como mucho grado 2,es decir, un máximo de dos hijos.
+Los hijos suelen denominarse hijo izquierdo e hijo a la derecho, estableciéndose de esta forma un orden en el posicionamiento de los mismos
+Se puede resumir en que es un árbol binario que cumple que el subárbol izquierdo de cualquier nodo (si no está vacío) contiene valores menores que el que contiene dicho nodo, y el subárbol derecho (si no está vacío) contiene valores mayores.
+Un árbol perfectamente equilibrado tiene el mismo número de nodos en el subárbol izquierdo que en el subárbol derecho. En un árbol binario equilibrado, el peor desempeño de insertar un dato es O(log2n)
+, donde n
+ es el número de nodos en el árbol.
+ Para calcular la altura del arbol debemos calcular log2n, y del mismo modo esta formula  representa el número máximo de comparaciones que insertar necesitará hacer mientras busca el lugar apropiado para insertar un nodo nuevo.
+\end{itemize}
+
+\newpage
+\section{Características}
+\begin{itemize}
+  \item Un árbol de búsqueda binaria es un árbol binario que almacena en cada uno una llave o valor
+  \item El valor de la raíz es menor que los valores almacenados en el lado derecho
+  \item El valor de la raíz es mayor que todos los valores almacenados en el lado izquierdo del nodo
+  
+    \includegraphics[scale=1.0]{img1}
+ \end{itemize}
+ 
+ \newpage
+ \section{Tipos de Recorridos}
+ \begin{itemize}
+   \item Se puede hacer un recorrido de un árbol en profundidad o en anchura.
+Los recorridos en anchura son por niveles, se realiza horizontalmente desde la raíz a todos los hijos antes de pasar a la descendencia de alguno de los hijos.
+El coste de recorrer el ABB es O(n), ya que se necesitan visitar todos los vértices.
+El recorrido en profundidad lleva al camino desde la raíz hacia el descendiente más lejano del primer hijo y luego continúa con el siguiente hijo. Como recorridos en profundidad tenemos inorden, preorden y postorden.
+Una propiedad de los ABB es que al hacer un recorrido en profundidad inorden obtenemos los elementos ordenados de forma ascendente.
+
+   \item PreOrden: raíz-izquierda-derecha
+   \item InOrden: izquierda-raíz-derecha
+   \item PosOrden:izquierda-derecha-raíz
+ \end{itemize}
+ \newpage
+ \section{Operaciones básicas }
+ \begin{itemize}
+   \item
+inserción: cuando se inserta un nuevo nodo en el árbol hay que tener en cuenta que cada nodo no puede tener más de dos hijos
+La inserción es similar a la búsqueda y se puede dar una solución tanto iterativa como recursiva. Si tenemos inicialmente como parámetro un árbol vacío se crea un nuevo nodo como único contenido el elemento a insertar. Si no lo está, se comprueba si el elemento dado es menor que la raíz del árbol inicial con lo que se inserta en el subárbol izquierdo y si es mayor se inserta en el subárbol derecho.
+\vskip 0.3cm
+ \includegraphics[scale=0.5]{img7}
+ \vskip 0.1cm
+  \includegraphics[scale=0.5]{img8}
+ \newpage
+ \item búsqueda: el algoritmo comprara el elemento a buscar con la raíz, si es menor continua la búsqueda por la rama izquierda, si es mayor continua por la derecha, este procedimiento se realiza recursivamente hasta que encuentre el nodo o hasta que llegue al final del árbol
+Cabe destacar que la búsqueda en este tipo de árboles es muy eficiente, representa una función logarítmica. El máximo número de comparaciones que necesitaríamos para saber si un elemento se encuentra en un árbol binario de búsqueda estaría entre [log2(N+1)] y N, siendo N el número de nodos.
+\vskip 0.3cm
+ \includegraphics[scale=0.6]{img6}
+ 
+ \newpage
+ \item Borrar:La operación de borrado no es tan sencilla como las de búsqueda e inserción. Existen varios casos a tener en consideración:
+  \begin{itemize}
+       \item Borrar un nodo sin hijos o nodo hoja: simplemente se borra y se establece a nulo el apuntador de su padre.
+       \item Borrar un nodo con un subárbol hijo: se borra el nodo y se asigna su subárbol hijo como subárbol de su padre. 
+       \item Borrar un nodo con dos subárboles hijo: la solución está en reemplazar el valor del nodo por el de su predecesor o por el de su sucesor en inorden y posteriormente borrar este nodo. Su predecesor en inorden será el nodo más a la derecha de su subárbol izquierdo (mayor nodo del subarbol izquierdo), y su sucesor el nodo más a la izquierda de su subárbol derecho (menor nodo del subarbol derecho). En la siguiente figura se muestra cómo existe la posibilidad de realizar cualquiera de ambos reemplazos:
+     \end{itemize}    
+     \vskip 0.3cm
+ \includegraphics[scale=0.5]{img9}
+ \newpage
+  \item Minimo y maximo: Para encontrar el valo minimo en un ABB se debe buscar 
+  en los hijos izquierdos hasta llegar al final del arbol,de modo contrario para 
+  encontrar un maximo se debe llegar al final del arbol por el lado derecho
+  \vskip 0.3cm
+  \includegraphics[scale=0.5]{img10}
+  \vskip 0.1cm
+  \includegraphics[scale=0.5]{img11}
+   \end{itemize}
+ 
+ \section{Aspectos técnicos del Desarrollo}
+  \begin{itemize}
+     \item En primera instancia se pidio implementar un ABB en el lenguaje de 
+     programacion Java,en este ABB se debe implementar un CRUD(excepto update),e 
+     ingresar la cantidad de 10.000 datos y ver como el árbol se comporta.
+     
+     \begin{enumerate}
+         \item Estructura de Nodo implementada
+         \vskip 0.1cm
+         \includegraphics[scale=0.5]{img12}
+         \item Estructura de Árbol implementada
+         \vskip 0.1cm
+         \includegraphics[scale=0.5]{img13}
+     \end{enumerate}
+      Esta estructurta fue planteada de este modo ya que solo se usaron 
+     enteros como 'clave'  en los árboles utilizados , a modo de hacer mas simple 
+     la implementacion y uso de estos.
+     
+     \item Diagrama de Clase
+      \vskip 0.1cm
+         \includegraphics[scale=0.5]{img14}
+
+  \end{itemize}
+
+
+
+\end{document}
