@@ -10,8 +10,10 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{lipsum}
 
-\author{Diego Campusano, Norton Irarrázabal, Nicolás García, Maykol González y Gerardo Carvajal.}
+\author{Diego Campusano, Norton Irarrázabal, Nicolás García, Maycol González y Gerardo Carvajal.}
+
 \title{Desarrollo de software: ABB, AVL-tree y B-tree}
+
 \date{\today}
 \begin{document}
 	\maketitle
@@ -25,13 +27,13 @@
 	 
 	 
 	 Ahora para los AVL, no se trata de árboles perfectamente equilibrados, pero sí lo son como para que su comportamiento sea lo bastante bueno como para usarlos, ya que los ABB no garantizan tiempos de búsqueda óptimos.
-\\El algoritmo para mantener un árbol AVL equilibrado se basa en reequilibrados locales, de modo que no es necesario explorar todo el árbol después de cada inserción o borrado.
+\\El algoritmo para mantener un árbol AVL equilibrado se basa en re equilibrados locales, de modo que no es necesario explorar todo el árbol después de cada inserción o borrado.
 
 
 	 La búsqueda de estructura de datos más eficiente no cesa, y siempre existen oportunidades de encontrar nuevas estructura de datos con mejores prestaciones, de esta manera aparece el árbol B-Tree que es una estructura balanceada de búsqueda, diseñada para trabajar bien en discos u otros dispositivos de almacenamiento secundarios, puesto que ayudan a reducir las operaciones de I/O; muchas bases de datos utilizan este tipo  de árbol o sus variantes para  almacenar la información.
 %-------------------------------------------------------------------------
 \newpage
-\section{Analisis de un Árbol de Búsqueda Binaria (ABB)}
+\section{Análisis de un Árbol de Búsqueda Binaria (ABB)}
 \begin{itemize}
   \item Definición:
   	Un árbol de búsqueda binario ABB, es aquel que en cada nodo puede tener como mucho grado 2,es decir, un máximo de dos hijos.
@@ -87,14 +89,14 @@ Cabe destacar que la búsqueda en este tipo de árboles es muy eficiente, represen
   \begin{itemize}
        \item Borrar un nodo sin hijos o nodo hoja: simplemente se borra y se establece a nulo el apuntador de su padre.
        \item Borrar un nodo con un subárbol hijo: se borra el nodo y se asigna su subárbol hijo como subárbol de su padre. 
-       \item Borrar un nodo con dos subárboles hijo: la solución está en reemplazar el valor del nodo por el de su predecesor o por el de su sucesor en inorden y posteriormente borrar este nodo. Su predecesor en inorden será el nodo más a la derecha de su subárbol izquierdo (mayor nodo del subarbol izquierdo), y su sucesor el nodo más a la izquierda de su subárbol derecho (menor nodo del subarbol derecho). En la siguiente figura se muestra cómo existe la posibilidad de realizar cualquiera de ambos reemplazos:
+       \item Borrar un nodo con dos subárboles hijo: la solución está en reemplazar el valor del nodo por el de su predecesor o por el de su sucesor en inorden y posteriormente borrar este nodo. Su predecesor en inorden será el nodo más a la derecha de su subárbol izquierdo (mayor nodo del subárbol izquierdo), y su sucesor el nodo más a la izquierda de su subárbol derecho (menor nodo del subárbol derecho). En la siguiente figura se muestra cómo existe la posibilidad de realizar cualquiera de ambos reemplazos:
      \end{itemize}    
      \vskip 0.3cm
  \includegraphics[scale=0.5]{img9}
  \newpage
-  \item Minimo y maximo: Para encontrar el valo minimo en un ABB se debe buscar 
-  en los hijos izquierdos hasta llegar al final del arbol,de modo contrario para 
-  encontrar un maximo se debe llegar al final del arbol por el lado derecho
+  \item Mínimo y máximo: Para encontrar el valor mínimo en un ABB se debe buscar 
+  en los hijos izquierdos hasta llegar al final del árbol,de modo contrario para 
+  encontrar un máximo se debe llegar al final del árbol por el lado derecho
   \vskip 0.3cm
   \includegraphics[scale=0.5]{img10}
   \vskip 0.1cm
@@ -103,8 +105,8 @@ Cabe destacar que la búsqueda en este tipo de árboles es muy eficiente, represen
  
  \section{Aspectos técnicos del Desarrollo}
   \begin{itemize}
-     \item En primera instancia se pidio implementar un ABB en el lenguaje de 
-     programacion Java,en este ABB se debe implementar un CRUD(excepto update),e 
+     \item En primera instancia se pidió implementar un ABB en el lenguaje de 
+     programación Java,en este ABB se debe implementar un CRUD(excepto update),e 
      ingresar la cantidad de 10.000 datos y ver como el árbol se comporta.
      
      \begin{enumerate}
@@ -117,7 +119,7 @@ Cabe destacar que la búsqueda en este tipo de árboles es muy eficiente, represen
      \end{enumerate}
       Esta estructurta fue planteada de este modo ya que solo se usaron 
      enteros como 'clave'  en los árboles utilizados , a modo de hacer mas simple 
-     la implementacion y uso de estos.
+     la implementación y uso de estos.
      
      \item Diagrama de Clase
       \vskip 0.1cm
@@ -129,27 +131,27 @@ Cabe destacar que la búsqueda en este tipo de árboles es muy eficiente, represen
 \vskip 0.4cm
 Definición. Un árbol AVL es un árbol binario de búsqueda que cumple con la condición de que la diferencia entre las alturas de los subárboles de cada uno de sus nodos es, como mucho 1, es decir balanceado.
 \vskip 0.4cm
-Recordamos que un árbol binario de busqueda consiste en que cada nodo cumple con que todos los nodos de su subárbol izquierdo son menores que la raíz y todos los nodos del subárbol derecho son mayores que la raíz.
+Recordamos que un árbol binario de búsqueda consiste en que cada nodo cumple con que todos los nodos de su subárbol izquierdo son menores que la raíz y todos los nodos del subárbol derecho son mayores que la raíz.
 \vskip 0.4cm
 El tiempo de las operaciones sobre un árbol binario de búsqueda son O(log n) promedio, pero el peor caso es O(n), donde n es el número de
 elementos.
 \vskip 0.4cm
 La propiedad de equilibrio que debe cumplir un árbol para ser AVL asegura que la profundidad del árbol sea O(log(n)), por lo que las operaciones sobre estas estructuras no deberán recorrer mucho para hallar el elemento deseado. 
 \vskip 0.4cm
-El tiempo de ejecución de las operaciónes sobre estos árboles es, a lo sumo O(log(n)) en el peor caso, donde n es la cantidad de elementos del árbol. Sin embargo, y como era de esperarse, esta misma propiedad de equilibrio de los árboles AVL implica una dificultad a la hora de insertar o eliminar elementos. Ya que es probable que estas operaciones afecten la propiedad de equilibrio.
+El tiempo de ejecución de las operaciones sobre estos árboles es, a lo sumo O(log(n)) en el peor caso, donde n es la cantidad de elementos del árbol. Sin embargo, y como era de esperarse, esta misma propiedad de equilibrio de los árboles AVL implica una dificultad a la hora de insertar o eliminar elementos. Ya que es probable que estas operaciones afecten la propiedad de equilibrio.
 \vskip 0.4cm
-Por lo que se efectuan operaciones sobre el arbol conocidas como rotaciones, que nos ayudan a conservar el órden y a restaurar la propiedad de equilibrio de el arbol AVL.
+Por lo que se efectúan operaciones sobre el árbol conocidas como rotaciones, que nos ayudan a conservar el órden y a restaurar la propiedad de equilibrio de el árbol AVL.
 \vskip 0.4cm 
 $Factor$ $de$ $equilibrio$ $o$ $propiedad$ $de$ $equilibrio:$ $FE$ $=$ $altura$ $subarbol$ $derecho$ $-$ $altura$ $sub$ $arbol$ $izquierdo$.
 \vskip 0.4cm 
 Se usan 4 tipos de rotaciones.
 \begin{itemize}
-\item Rotacion Simple a la derecha: Se usa cuando el subarbol izquierdo de un nodo sea 2 unidades mas alto que el derecho, es decir que este cargado a la izquierda.FE (= -2)
-\item Rotacion Simple a la izquierda: Se usa cuando subarbol derecho de un nodo sea 2 unidades mas alto que el izquierdo, es decir que este cargado a la derecha. (FE=2)
-\item Rotacion Doble a la derecha:   Si FE$>$1 y su hijo derecho tiene signo -. Esto es el equivalente a 
-i: aplicar rotacion simple a la derecha. ii: aplicar rotacion simple a la izquierda.
-\item Rotacion Doble a la izquierda: Si FE$<$-1 y su hijo izquierdo tiene signo +.
-i: aplicar rotacion simple a la izquierda. ii: aplicar rotacion simple a la derecha.
+\item Rotación Simple a la derecha: Se usa cuando el subárbol izquierdo de un nodo sea 2 unidades mas alto que el derecho, es decir que este cargado a la izquierda.FE (= -2)
+\item Rotación Simple a la izquierda: Se usa cuando subárbol derecho de un nodo sea 2 unidades mas alto que el izquierdo, es decir que este cargado a la derecha. (FE=2)
+\item Rotación Doble a la derecha:   Si FE$>$1 y su hijo derecho tiene signo -. Esto es el equivalente a 
+i: aplicar rotación simple a la derecha. ii: aplicar rotación simple a la izquierda.
+\item Rotación Doble a la izquierda: Si FE$<$-1 y su hijo izquierdo tiene signo +.
+i: aplicar rotación simple a la izquierda. ii: aplicar rotación simple a la derecha.
 \end{itemize}
 %-------------------------------------------------------------------------
 \newpage
@@ -174,7 +176,7 @@ i: aplicar rotacion simple a la izquierda. ii: aplicar rotacion simple a la dere
 \section{Implementación arbol AVL}
 El arbol avl se elaboro en Eclipse Jee Oxygen es una plataforma de software compuesto por un conjunto de herramientas de programación de código abierto multiplataforma para desarrolladores java.
 \vskip 0.6cm
-Pueden existir diversas formas de implementar un arbol AVL. Sin embargo, la implementación que yo hice para los nodos del arbol AVL es la siquiente:
+Pueden existir diversas formas de implementar un árbol AVL. Sin embargo, la implementación que yo hice para los nodos del arbol AVL es la siquiente:
 \vskip 0.8cm
 \begin{lstlisting}
 public class Nodo_arbol_AVL {
@@ -190,11 +192,11 @@ public class Nodo_arbol_AVL {
 }
 \end{lstlisting}
 \vskip 0.6cm
-Los nodos pueden tener muchos mas datos ya sean String, int, double etc. Sin embargo por simplicidad solo usaremos un dato de tipo entero, ahora si lo queremos con mas datos bastaria con incoporar otra variable.
+Los nodos pueden tener muchos mas datos ya sean String, int, double etc... Sin embargo por simplicidad solo usaremos un dato de tipo entero, ahora si lo queremos con mas datos bastaría con incorporar otra variable.
 \vskip 0.6cm
-Cada nodo tendra su propio factor de equilibrio, para poder evaluar el balance del arbol AVL. Ademas de un hijo izquierdo y un hijo derecho de su misma clase.
+Cada nodo tendrá su propio factor de equilibrio, para poder evaluar el balance del árbol AVL. Ademas de un hijo izquierdo y un hijo derecho de su misma clase.
 \vskip 0.8cm
-Ahora el arbol AVL lo defini como API\_AVL y este tendra solamente el nodo raiz.
+Ahora el árbol AVL lo defini como API\_AVL y este tendrá solamente el nodo raíz.
 \begin{lstlisting}
 public class API_AVL{
 	private Nodo_arbol_AVL raiz;
@@ -205,7 +207,7 @@ public class API_AVL{
 }
 \end{lstlisting}
 \vskip 0.8cm
-Ahora recordemos que cada una de estas clases tiene múltiples metodos y por consiguiente, incorpore diagramas UML y el Javadoc en donde podran encontrar todo el detalle.
+Ahora recordemos que cada una de estas clases tiene múltiples métodos y por consiguiente, incorpore diagramas UML y el Javadoc en donde podrán encontrar todo el detalle.
 %-------------------------------------------------------------------------	
 \newpage
 \section{Diagrama UML }
@@ -248,42 +250,42 @@ Ahora recordemos que cada una de estas clases tiene múltiples metodos y por cons
 
 \newpage
 %***********************************************************************************
-\section{Descripcion Arbol-B}
+\section{Descripción Árbol-B}
 \vskip 0.5cm
 Los arboles b disenados para funcionar bien en discos u otros accesos directos
-dispositivos de almacenamiento secundario.Los arboles B son similares a los arboles red-black, pero son mejores para minimizar las operaciones de E / S de disco. Muchos sistemas de bases de datos utilizan B-trees, o variantes de B-trees, para almacenar informacion.
+dispositivos de almacenamiento secundario.Los arboles B son similares a los arboles red-black, pero son mejores para minimizar las operaciones de E / S de disco. Muchos sistemas de bases de datos utilizan B-trees, o variantes de B-trees, para almacenar información.
 \vskip 0.3cm
-La idea tras los arboles-B es que los nodos internos deben tener un numero variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniendose el numero de nodos dentro del rango predefinido, los nodos internos se juntan o se parten. Dado que se permite un rango variable de nodos hijo, los arboles-B no necesitan Re balancearse tan frecuentemente como los arboles binarios de busqueda auto-balanceables. Pero, por otro lado, pueden desperdiciar memoria, porque los nodos no permanecen totalmente ocupados.
+La idea tras los arboles-B es que los nodos internos deben tener un numero variable de nodos hijo dentro de un rango predefinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniéndose el numero de nodos dentro del rango predefinido, los nodos internos se juntan o se parten. Dado que se permite un rango variable de nodos hijo, los arboles-B no necesitan Re balancearse tan frecuentemente como los arboles binarios de búsqueda auto-balanceables. Pero, por otro lado, pueden desperdiciar memoria, porque los nodos no permanecen totalmente ocupados.
 \vskip 2cm
 %**********************************************************************************
-\section{Caracteristicas Arbol-B}
+\section{Características Árbol-B}
 \vskip 0.3cm
-Los Arboles B deben cumplir las sigientes caracteristicas:
+Los Arboles B deben cumplir las siguientes características:
 \vskip 0.3cm
 \begin{itemize}
-\item Toda pagina tiene como maximo 2n nodos.
-\item Toda pagina distinta de la raiz tiene como minimo n nodos.
-\item La raiz tiene como minimo un nodo.
-\item Todas las paginas hojas estan en el ultimo nivel.
+\item Toda pagina tiene como máximo 2n nodos.
+\item Toda pagina distinta de la raíz tiene como mínimo n nodos.
+\item La raíz tiene como mínimo un nodo.
+\item Todas las paginas hojas están en el ultimo nivel.
 \end{itemize}
 \vskip 0.3cm
-Ademas de estas caracteristicas los arboles B tienen cumplir cierto orden:
+Ademas de estas características los arboles B tienen cumplir cierto orden:
 \vskip 0.3cm
 \begin{itemize}
 \item Los nodos dentro de una pagina mantienen un orden ascendente.
-\item Cada nodo es mayor que los nodos situados a su izquerda.
+\item Cada nodo es mayor que los nodos situados a su izquierda.
 \item Cada nodo es mayor que los nodos situados a su derecha.
 \end{itemize}
 \vskip 0.3cm
 \newpage
 %***********************************************************************************
-\section{Implementacion Arbol-B}
+\section{Implementan Árbol-B}
 \vskip 0.3cm
-En esta seccion, presentamos los detalles de algunas de las operaciones basicas del los arboles B como los es crear,Buscar, eliminar e Insertar:
+En esta sección, presentamos los detalles de algunas de las operaciones básicas del los arboles B como los es crear,Buscar, eliminar e Insertar:
 \vskip 0.3cm
 %***********************************************************************
 \begin{itemize}
-\item Crear Arbol B: Para construir un T arbol B, primero usamos B-TREE-CREATE para crear un nodo raiz vacio y luego agregamos nuevas claves.
+\item Crear Árbol B: Para construir un T árbol B, primero usamos B-TREE-CREATE para crear un nodo raíz vacío y luego agregamos nuevas claves.
 \vskip 0.3cm
 \includegraphics[width=5cm,height=3cm]{crear} 
 \vskip 0.3cm
@@ -291,49 +293,49 @@ En esta seccion, presentamos los detalles de algunas de las operaciones basicas 
 %**************************************************************
 \skip 0.3cm
 
-\item Buscar: Buscar un arbol B es muy parecido a buscar en un arbol binario de busqueda, excepto que en lugar de hacer un
-decision de bifurcacion binaria o "bidireccional" en cada nodo, hacemos una bifurcacion de multiples vias
+\item Buscar: Buscar un árbol B es muy parecido a buscar en un arbol binario de búsqueda, excepto que en lugar de hacer un
+decisión de bifurcación binaria o "bidireccional" en cada nodo, hacemos una bifurcación de múltiples vías.
 decision segun el numero de hijos del nodo.
 
 \includegraphics[width=10cm,height=5cm]{buscar} 
 \vskip 0.3cm
-Usando un procedimiento de busqueda lineal, las lineas 1-3 encuentran el indice mas pequeno i tal que k <= key i (x), o
+Usando un procedimiento de búsqueda lineal, las lineas 1-3 encuentran el indice mas pequeño i tal que k <= key i (x), o
 de lo contrario, establecen i a n [x] + 1. Las lineas 4-5 comprueban si ahora hemos descubierto la clave, volviendo
-si tenemos Las lineas 6-9 terminan la busqueda sin exito (si x es una hoja)  en el
-busque el subarbol apropiado de x, despues de realizar el DISK-READ necesario en ese hijo
+si tenemos Las lineas 6-9 terminan la búsqueda sin éxito (si x es una hoja)  en el
+busque el subárbol apropiado de x, después de realizar el DISK-READ necesario en ese hijo
 %*********************************************************************
 \vskip 5cm
 \item Insertar: Las inserciones se hacen en los nodos hoja.\\
 \begin{itemize}
- \item 1. Realizando una busqueda en el arbol, se halla el nodo hoja en el cual deberia ubicarse el nuevo elemento.
- \item 2. Si el nodo hoja tiene menos elementos que el maximo numero de elementos legales, entonces hay lugar para uno mas. Inserte el nuevo elemento en el nodo, respetando el orden de los elementos.\\
- \item 3. De otra forma, el nodo debe ser dividido en dos nodos. La division se realiza de la siguiente manera:
+ \item 1. Realizando una búsqueda en el árbol, se halla el nodo hoja en el cual debería ubicarse el nuevo elemento.
+ \item 2. Si el nodo hoja tiene menos elementos que el máximo numero de elementos legales, entonces hay lugar para uno mas. Inserte el nuevo elemento en el nodo, respetando el orden de los elementos.\\
+ \item 3. De otra forma, el nodo debe ser dividido en dos nodos. La división se realiza de la siguiente manera:
  \begin{itemize}
  
  \item Se escoge el valor medio entre los elementos del nodo y el nuevo elemento.
- \item Los valores menores que el valor medio se colocan en el nuevo nodo izquierdo, y los valores mayores que el valor medio se colocan en el nuevo nodo derecho; el valor medio actua como valor separador.
- \item El valor separador se debe colocar en el nodo padre, lo que puede provocar que el padre sea dividido en dos, y asi sucesivamente.
+ \item Los valores menores que el valor medio se colocan en el nuevo nodo izquierdo, y los valores mayores que el valor medio se colocan en el nuevo nodo derecho; el valor medio actúa como valor separador.
+ \item El valor separador se debe colocar en el nodo padre, lo que puede provocar que el padre sea dividido en dos, y así sucesivamente.
 
  \end{itemize}
 \end{itemize}
 \vskip 0.4cm
-\includegraphics[width=8cm,height=5cm]{inserta}{ Insercion normal}
+\includegraphics[width=8cm,height=5cm]{inserta}{ Inserción normal}
 \vskip 0.3cm
-\includegraphics[width=9cm,height=7cm]{inserta2}{ Insercion con divicion de nodo}
+\includegraphics[width=9cm,height=7cm]{inserta2}{ Inserción con división de nodo}
 \vskip 0.9cm
 
-\item Eliminar:La eliminacion de un B-tree es analoga a la insercion, pero un poco mas complicada, porque una clave
-puede eliminarse de cualquier nodo, no solo una hoja, y la eliminacion de un nodo interno requiere que
-los hijos del nodo se reorganizen. Al igual que en la insercion, debemos protegernos contra la eliminacion produciendo un
-arbol cuya estructura viola las propiedades del arbol B. Asi como tunemos que asegurarnos de que un nodo no
-se hace demasiado grande debido a la insercion, debemos asegurarnos de que un nodo no se vuelva demasiado pequeno durante la eliminacion
-(excepto que la raiz tiene permitido tener menos que el numero minimo t - 1 de teclas, aunque no esta permitido tener mas que el numero maximo 2t - 1 de teclas).
+\item Eliminar:La eliminación de un B-tree es análoga a la inserción, pero un poco mas complicada, porque una clave
+puede eliminarse de cualquier nodo, no solo una hoja, y la eliminación de un nodo interno requiere que
+los hijos del nodo se reorganicen. Al igual que en la inserción, debemos protegernos contra la eliminación produciendo un
+árbol cuya estructura viola las propiedades del árbol B. Así como tunemos que asegurarnos de que un nodo no
+se hace demasiado grande debido a la inserción, debemos asegurarnos de que un nodo no se vuelva demasiado pequeño durante la eliminación
+(excepto que la raiz tiene permitido tener menos que el numero mínimo t - 1 de teclas, aunque no esta permitido tener mas que el numero máximo 2t - 1 de teclas).
 
 
 \end{itemize}
 
 	 \subsection{ABB y B-tree}
-	 	A diferencia del ABB, el árbol B posee multi caminos, ya que cada nodo puede tener varios hijos según el grado del árbol, y es auto-balanceable por lo que todas sus hojas están en el mismo nivel, esto implica que en comparación las búsquedas son mucho más directas, Cabe recalcar también que las hojas contienen todas las claves en orden, por lo que la búsquedas son realmente efectivas. donde esta mucho más dividido la zona de claves en donde queramos buscar. 
+	 	A diferencia del ABB, el árbol B posee multicaminos, ya que cada nodo puede tener varios hijos según el grado del árbol, y es auto-balanceable por lo que todas sus hojas están en el mismo nivel, esto implica que en comparación las búsquedas son mucho más directas, Cabe recalcar también que las hojas contienen todas las claves en orden, por lo que la búsquedas son realmente efectivas. donde esta mucho más dividido la zona de claves en donde queramos buscar. 
 	 
 	 \subsection{B-tree y AVL}
 	 La principal diferencia entre el ABB y el B-tree, es que este último realiza una menor cantidad de búsqueda para poder llegar a la clave solicitada, Los árboles B tienen ventajas sustanciales sobre otras implementaciones cuando el tiempo de acceso a los nodos excede al tiempo de acceso entre nodos. Este caso se da usualmente cuando los nodos se encuentran en dispositivos de almacenamiento secundario como los discos rígidos. Al maximizar el número de nodos hijo de cada nodo interno, la altura del árbol decrece, las operaciones para balancearlo se reducen, y aumenta la eficiencia. Usualmente este valor se coloca de forma tal que cada nodo ocupe un bloque de disco, o un tamaño análogo en el dispositivo.
@@ -355,7 +357,14 @@ se hace demasiado grande debido a la insercion, debemos asegurarnos de que un no
  
 %-------------------------------------------------------------------------
 \newpage
-\begin{thebibliography}{99}
+\begin{thebibliography}El algoritmo para mantener un arbol AVL equilibrado se basa en reequilibrados locales, de modo que no es
+necesario explorar todo el arbol despues de cada insercion o borrado.
+La busqueda de estructura de datos mas eciente no cesa, y siempre existen oportunidades de encontrar
+nuevas estructura de datos con mejores prestaciones, de esta manera aparece el arbol B-Tree que es una estructura
+balanceada de busqueda, dise~nada para trabajar bien en discos u otros dispositivos de almacenamiento
+secundarios, puesto que ayudan a reducir las operaciones de I/O; muchas bases de datos utilizan este tipo de
+arbol o sus variantes para almacenar la informacion.
+{99}
 \bibitem{}{Árboles AVL: rua.ua.es/dspace/handle/10045/16037}
 \bibitem{}{Estructuras de datos : Libro CLRSL}
 \bibitem{}{Arboles binarios de busqueda: decsai.ugr.es/jfv/ed1/tedi/cdrom/docs/arb\_BB.htm}

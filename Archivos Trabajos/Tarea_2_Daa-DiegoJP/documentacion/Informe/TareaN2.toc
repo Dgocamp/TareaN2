@@ -1,6 +1,6 @@
 \babel@toc {spanish}{}
 \contentsline {section}{\numberline {1}Introducci\'on}{3}
-\contentsline {section}{\numberline {2}Analisis de un \'Arbol de B\'usqueda Binaria (ABB)}{4}
+\contentsline {section}{\numberline {2}An\'alisis de un \'Arbol de B\'usqueda Binaria (ABB)}{4}
 \contentsline {section}{\numberline {3}Caracter\IeC {\'\i }sticas}{5}
 \contentsline {section}{\numberline {4}Tipos de Recorridos}{6}
 \contentsline {section}{\numberline {5}Operaciones b\'asicas }{7}
@@ -16,9 +16,9 @@
 \contentsline {section}{\numberline {15}Muestra del Javadoc 4}{20}
 \contentsline {section}{\numberline {16}Diferencias entre algoritmos}{21}
 \contentsline {subsection}{\numberline {16.1}ABB y AVL-tree}{21}
-\contentsline {section}{\numberline {17}Descripcion Arbol-B}{22}
-\contentsline {section}{\numberline {18}Caracteristicas Arbol-B}{22}
-\contentsline {section}{\numberline {19}Implementacion Arbol-B}{23}
+\contentsline {section}{\numberline {17}Descripci\'on \'Arbol-B}{22}
+\contentsline {section}{\numberline {18}Caracter\IeC {\'\i }sticas \'Arbol-B}{22}
+\contentsline {section}{\numberline {19}Implementan \'Arbol-B}{23}
 \contentsline {subsection}{\numberline {19.1}ABB y B-tree}{24}
 \contentsline {subsection}{\numberline {19.2}B-tree y AVL}{24}
 \contentsline {section}{\numberline {20}Conclusi\'on}{26}
